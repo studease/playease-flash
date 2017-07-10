@@ -44,8 +44,6 @@ package cn.studease.model
 				_provider.removeEventListener(MediaEvent.PLAYEASE_BUFFERING, _stateHandler);
 				_provider.removeEventListener(MediaEvent.PLAYEASE_PLAYING, _stateHandler);
 				_provider.removeEventListener(MediaEvent.PLAYEASE_PAUSED, _stateHandler);
-				_provider.removeEventListener(MediaEvent.PLAYEASE_RELOADING, _stateHandler);
-				_provider.removeEventListener(MediaEvent.PLAYEASE_SEEKING, _stateHandler);
 				_provider.removeEventListener(MediaEvent.PLAYEASE_STOPPED, _stateHandler);
 				_provider.removeEventListener(MediaEvent.PLAYEASE_RENDER_ERROR, _stateHandler);
 				_provider.stop();
@@ -57,8 +55,6 @@ package cn.studease.model
 			_provider.addEventListener(MediaEvent.PLAYEASE_BUFFERING, _stateHandler);
 			_provider.addEventListener(MediaEvent.PLAYEASE_PLAYING, _stateHandler);
 			_provider.addEventListener(MediaEvent.PLAYEASE_PAUSED, _stateHandler);
-			_provider.addEventListener(MediaEvent.PLAYEASE_RELOADING, _stateHandler);
-			_provider.addEventListener(MediaEvent.PLAYEASE_SEEKING, _stateHandler);
 			_provider.addEventListener(MediaEvent.PLAYEASE_STOPPED, _stateHandler);
 			_provider.addEventListener(MediaEvent.PLAYEASE_RENDER_ERROR, _stateHandler);
 			

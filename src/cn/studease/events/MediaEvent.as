@@ -10,10 +10,7 @@ package cn.studease.events
 		public static const PLAYEASE_BUFFERING:String = 'playeaseBuffering';
 		public static const PLAYEASE_PLAYING:String = 'playeasePlaying';
 		public static const PLAYEASE_PAUSED:String = 'playeasePaused';
-		public static const PLAYEASE_RELOADING:String = 'playeaseReloading';
-		public static const PLAYEASE_SEEKING:String = 'playeaseSeeking';
 		public static const PLAYEASE_STOPPED:String = 'playeaseStopped';
-		
 		public static const PLAYEASE_RENDER_ERROR:String = 'playeaseRenderError';
 		
 		public static const PLAYEASE_METADATA:String = 'playeaseMetaData';

@@ -11,7 +11,7 @@ package cn.studease.media
 		
 		function play(url:String = null):void;
 		function pause():void;
-		function load():void;
+		function reload():void;
 		function seek(offset:Number):void;
 		function stop():void;
 		function muted(bool:Boolean):void;

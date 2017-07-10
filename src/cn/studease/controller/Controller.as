@@ -38,8 +38,8 @@ package cn.studease.controller
 			_model.media.pause();
 		}
 		
-		public function load():void {
-			_model.media.load();
+		public function reload():void {
+			_model.media.reload();
 		}
 		
 		public function seek(offset:Number):void {

@@ -87,9 +87,6 @@ package cn.studease.media
 					break;
 				
 				case 'NetStream.Buffer.Full':
-					_state = States.PLAYING;
-					break;
-				
 				case 'NetStream.Play.Start':
 					_state = States.PLAYING;
 					dispatchEvent(new MediaEvent(MediaEvent.PLAYEASE_PLAYING));
@@ -184,7 +181,7 @@ package cn.studease.media
 			}
 		}
 		
-		override public function load():void {
+		override public function reload():void {
 			stop();
 			play(_config.url);
 		}

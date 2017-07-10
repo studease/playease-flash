@@ -80,9 +80,6 @@ package cn.studease.media
 					break;
 				
 				case 'NetStream.Buffer.Full':
-					_state = States.PLAYING;
-					break;
-					
 				case 'NetStream.Play.Start':
 					_state = States.PLAYING;
 					dispatchEvent(new MediaEvent(MediaEvent.PLAYEASE_PLAYING));
@@ -129,10 +126,15 @@ package cn.studease.media
 			
 			if (url && url != _config.url) {
 				_config.url = url;
-			} else if (_state == States.PAUSED) {
-				_state = States.PLAYING;
-				_stream.resume();
-				return;
+			} else {
+				if (_state == States.PAUSED) {
+					_state = States.PLAYING;
+					_stream.resume();
+				}
+				
+				if (_state == States.BUFFERING || _state == States.PLAYING) {
+					return;
+				}
 			}
 			
 			if (_config.hasOwnProperty('stagevideo') && _config.stagevideo == false) {
@@ -199,8 +201,8 @@ package cn.studease.media
 			_stream.pause();
 		}
 		
-		public function load():void {
-			_state = States.RELOADING;
+		public function reload():void {
+			_state = States.BUFFERING;
 			_stream.dispose();
 			play(_config.url);
 		}

@@ -77,9 +77,9 @@ package
 				
 				this.addChild(_view.element);
 				
-				ExternalInterface.addCallback('iplay', play);
+				ExternalInterface.addCallback('xplay', play);
 				ExternalInterface.addCallback('pause', pause);
-				ExternalInterface.addCallback('load', load);
+				ExternalInterface.addCallback('reload', reload);
 				ExternalInterface.addCallback('seek', seek);
 				ExternalInterface.addCallback('istop', stop);
 				ExternalInterface.addCallback('muted', muted);
@@ -116,8 +116,8 @@ package
 			_controller.pause();
 		}
 		
-		public function load():void {
-			_controller.load();
+		public function reload():void {
+			_controller.reload();
 		}
 		
 		public function seek(offset:Number):void {
