@@ -176,7 +176,7 @@ package cn.studease.media
 				if (_duration) {
 					_stream.pause();
 				} else {
-					_stream.close();
+					stop();
 				}
 			}
 		}
@@ -217,6 +217,8 @@ package cn.studease.media
 			_buffered = 0;
 			_position = 0;
 			_duration = 0;
+			
+			dispatchEvent(new MediaEvent(MediaEvent.PLAYEASE_STOPPED));
 		}
 	}
 }

@@ -128,8 +128,10 @@ package cn.studease.media
 				_config.url = url;
 			} else {
 				if (_state == States.PAUSED) {
-					_state = States.PLAYING;
 					_stream.resume();
+					
+					_state = States.PLAYING;
+					dispatchEvent(new MediaEvent(MediaEvent.PLAYEASE_PLAYING));
 				}
 				
 				if (_state == States.BUFFERING || _state == States.PLAYING) {
@@ -229,6 +231,8 @@ package cn.studease.media
 			_buffered = 0;
 			_position = 0;
 			_duration = 0;
+			
+			dispatchEvent(new MediaEvent(MediaEvent.PLAYEASE_STOPPED));
 		}
 		
 		public function muted(bool:Boolean):void {
