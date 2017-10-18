@@ -62,7 +62,7 @@ package cn.studease.media
 		}
 		
 		private function _statusHandler(e:NetStatusEvent):void {
-			Logger.debug('netstatus: ' + e.info.code);
+			Logger.log('netstatus: ' + e.info.code);
 			
 			switch (e.info.code) {
 				case 'NetConnection.Connect.Success':
@@ -133,11 +133,11 @@ package cn.studease.media
 			}
 			
 			if (!_connection.connected) {
-				var re:RegExp = new RegExp('^(rtmp[es]?\:\/\/[a-z0-9\.\-]+(\:([0-9]*))?(\/[a-z0-9\.\-_]+)+)\/([a-z0-9\.\-_]+)$', 'i');
+				var re:RegExp = /^(rtmp[es]?\:\/\/[a-z0-9\.\-]+(\:[0-9]+)?(\/[a-z0-9\.\-_]+){1,2})\/([a-z0-9\/\:\.\-_]+)$/i;
 				var arr:Array = _config.url.match(re);
-				if (arr && arr.length > 5) {
+				if (arr && arr.length > 4) {
 					_application = arr[1];
-					_streamname = arr[5];
+					_streamname = arr[4];
 				} else {
 					Logger.error('Failed to match RTMP URL: ' + _config.url);
 					error('Bad URL format!');

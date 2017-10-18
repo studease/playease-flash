@@ -15,6 +15,7 @@ package cn.studease.media
 	import flash.media.Video;
 	import flash.net.NetConnection;
 	import flash.net.NetStream;
+	import flash.net.ObjectEncoding;
 	import flash.utils.Timer;
 	
 	import cn.studease.events.MediaEvent;
@@ -52,6 +53,7 @@ package cn.studease.media
 			_state = States.STOPPED;
 			
 			_connection = new NetConnection();
+			_connection.objectEncoding = ObjectEncoding.AMF0;
 			_connection.connect(null);
 			
 			_stream = new NetStream(_connection);

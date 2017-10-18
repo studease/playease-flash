@@ -81,7 +81,7 @@ package
 				ExternalInterface.addCallback('pause', pause);
 				ExternalInterface.addCallback('reload', reload);
 				ExternalInterface.addCallback('seek', seek);
-				ExternalInterface.addCallback('istop', stop);
+				ExternalInterface.addCallback('xstop', stop);
 				ExternalInterface.addCallback('muted', muted);
 				ExternalInterface.addCallback('volume', volume);
 				ExternalInterface.addCallback('resize', resize);
