@@ -77,8 +77,10 @@ package cn.studease.media
 			
 			switch (e.info.code) {
 				case 'NetStream.Buffer.Empty':
-					_state = States.BUFFERING
-					dispatchEvent(new MediaEvent(MediaEvent.PLAYEASE_BUFFERING));
+					if (_state != States.STOPPED && _state != States.ERROR) {
+						_state = States.BUFFERING
+						dispatchEvent(new MediaEvent(MediaEvent.PLAYEASE_BUFFERING));
+					}
 					break;
 				
 				case 'NetStream.Buffer.Full':

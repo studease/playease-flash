@@ -70,20 +70,11 @@ package cn.studease.media
 					play(_config.url);
 					break;
 				
-				case 'NetConnection.Connect.Rejected':
-				case 'NetConnection.Connect.Failed':
-					error(e.info.code);
-					break;
-				
-				case 'NetConnection.Connect.Closed':
-					_state = States.STOPPED;
-					dispatchEvent(new MediaEvent(MediaEvent.PLAYEASE_STOPPED));
-					break;
-				
-				
 				case 'NetStream.Buffer.Empty':
-					_state = States.BUFFERING
-					dispatchEvent(new MediaEvent(MediaEvent.PLAYEASE_BUFFERING));
+					if (_state != States.STOPPED && _state != States.ERROR) {
+						_state = States.BUFFERING
+						dispatchEvent(new MediaEvent(MediaEvent.PLAYEASE_BUFFERING));
+					}
 					break;
 				
 				case 'NetStream.Buffer.Full':
@@ -97,6 +88,7 @@ package cn.studease.media
 					dispatchEvent(new MediaEvent(MediaEvent.PLAYEASE_PAUSED));
 					break;
 				
+				case 'NetConnection.Connect.Closed':
 				case 'NetStream.Play.Stop':
 				case 'NetStream.Play.UnpublishNotify':
 					_state = States.STOPPED;
@@ -110,6 +102,8 @@ package cn.studease.media
 					}));
 					break;
 				
+				case 'NetConnection.Connect.Rejected':
+				case 'NetConnection.Connect.Failed':
 				case 'NetStream.Failed':
 				case 'NetStream.Play.Failed':
 				case 'NetStream.Play.StreamNotFound':
@@ -126,7 +120,8 @@ package cn.studease.media
 			
 			if (url && url != _config.url) {
 				_config.url = url;
-			} else if (_connection.connected && _metadata && _duration) {
+			} else if (_connection.connected && _state == States.PAUSED) {
+				Logger.log('Resume playing');
 				_state = States.PLAYING;
 				_stream.resume();
 				return;
