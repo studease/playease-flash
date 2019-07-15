@@ -1,8 +1,8 @@
-﻿# playease-flash
+﻿# playease-swf
 
 > [[domain] http://studease.cn](http://studease.cn/playease.html)
 
-> [[source] https://github.com/studease/playease-flash](https://github.com/studease/playease-flash)
+> [[source] https://github.com/studease/playease-swf](https://github.com/studease/playease-swf)
 
 > [[中文] http://blog.csdn.net/icysky1989/article/details/75094205](http://blog.csdn.net/icysky1989/article/details/75094205)
 
