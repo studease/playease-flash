@@ -10,6 +10,8 @@
 
 > QQ群：528109813
 
+> Skype: live:670292548
+
 This is the flash render of playease.js for rtmp streaming. But also supports http vod, such as mp4, flv, etc. 
 
 For more details, please check [playease.js https://github.com/studease/playease](https://github.com/studease/playease).
